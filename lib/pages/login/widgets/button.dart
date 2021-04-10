@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/defaults/constants.dart';
-import 'package:spotify_clone/defaults/defaults.dart';
 
 class Button extends StatefulWidget {
   Button({this.onPressed, this.bgColor, this.fontColor, this.text});
@@ -11,7 +10,8 @@ class Button extends StatefulWidget {
   final String text;
 
   @override
-  ButtonState createState() => ButtonState(this.onPressed, this.bgColor, this.fontColor, this.text);
+  ButtonState createState() =>
+      ButtonState(this.onPressed, this.bgColor, this.fontColor, this.text);
 }
 
 class ButtonState extends State<Button> {
@@ -26,26 +26,25 @@ class ButtonState extends State<Button> {
   Widget build(BuildContext context) {
     return Expanded(
       child: SizedBox(
-        height: Constants().a8(context),
+        height: Constants.a8,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(40),
           child: TextButton(
-            onPressed: onPressed,
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.pressed))
-                    return bgColor.withOpacity(0.5);
-                  return bgColor;
-                },
+              onPressed: onPressed,
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                  (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed))
+                      return bgColor.withOpacity(0.5);
+                    return bgColor;
+                  },
+                ),
               ),
-            ),
-            child: Text(text, style: TextStyle(
-              color: fontColor,
-              fontSize: Constants().m(context),
-              fontWeight: bold
-            ))
-          ),
+              child: Text(text,
+                  style: TextStyle(
+                      color: fontColor,
+                      fontSize: Constants.m,
+                      fontWeight: Constants.bold))),
         ),
       ),
     );

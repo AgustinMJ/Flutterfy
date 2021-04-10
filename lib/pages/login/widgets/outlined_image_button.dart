@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone/defaults/constants.dart';
-import 'package:spotify_clone/defaults/defaults.dart';
 
 class OutlinedImageButton extends StatefulWidget {
-  OutlinedImageButton({this.onPressed, this.color, this.fontColor, this.text, this.image});
+  OutlinedImageButton(
+      {this.onPressed, this.color, this.fontColor, this.text, this.image});
 
   final Function onPressed;
   final Color color;
@@ -12,11 +12,13 @@ class OutlinedImageButton extends StatefulWidget {
   final Image image;
 
   @override
-  OutlinedImageButtonState createState() => OutlinedImageButtonState(this.onPressed, this.color, this.fontColor, this.text, this.image);
+  OutlinedImageButtonState createState() => OutlinedImageButtonState(
+      this.onPressed, this.color, this.fontColor, this.text, this.image);
 }
 
 class OutlinedImageButtonState extends State<OutlinedImageButton> {
-  OutlinedImageButtonState(this.onPressed, this.color, this.fontColor, this.text, this.image);
+  OutlinedImageButtonState(
+      this.onPressed, this.color, this.fontColor, this.text, this.image);
 
   final Function onPressed;
   final Color color;
@@ -28,14 +30,15 @@ class OutlinedImageButtonState extends State<OutlinedImageButton> {
   Widget build(BuildContext context) {
     return Expanded(
       child: SizedBox(
-        height: Constants().a8(context),
+        height: Constants.a8,
         child: OutlinedButton(
             style: ButtonStyle(
               side: MaterialStateProperty.resolveWith((context) {
-                return BorderSide(color: grey, width: 1);
+                return BorderSide(color: Constants.grey, width: 1);
               }),
               shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
-                return RoundedRectangleBorder(borderRadius: BorderRadius.circular(40));
+                return RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40));
               }),
             ),
             onPressed: onPressed,
@@ -50,20 +53,17 @@ class OutlinedImageButtonState extends State<OutlinedImageButton> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(text, style: TextStyle(
-                        color: fontColor,
-                        fontSize: Constants().m(context),
-                        fontWeight: bold
-                      )),
+                      Text(text,
+                          style: TextStyle(
+                              color: fontColor,
+                              fontSize: Constants.m,
+                              fontWeight: Constants.bold)),
                     ],
                   ),
                 ),
-                Spacer(
-                  flex: 10
-                )
+                Spacer(flex: 10)
               ],
-            )
-          ),
+            )),
       ),
     );
   }
