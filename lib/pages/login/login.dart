@@ -28,8 +28,8 @@ class LoginState extends State<Login> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding:
-                    EdgeInsets.only(bottom: Constants.v7, top: Constants.v7),
+                padding: EdgeInsets.only(
+                    bottom: Constants.v7 * 1, top: Constants.v7 * 3),
                 child: SvgPicture.asset('assets/icons/iconmonstr-spotify-1.svg',
                     color: Constants.white, width: Constants.w8),
               ),
